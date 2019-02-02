@@ -52,7 +52,6 @@ def convert_rgb(hex_str):
 
 BASE16_DIR = os.path.join(os.path.dirname(__file__), 'base16')
 COLORS_DIR = os.path.join(os.path.dirname(__file__), 'colors')
-PROTO_PATH = os.path.join(os.path.dirname(__file__), 'proto.vim')
 TEMPL_PATH = os.path.join(os.path.dirname(__file__), 'template.vim')
 TEMPLATE = open(TEMPL_PATH).read()
 

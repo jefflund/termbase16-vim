@@ -52,8 +52,8 @@ call s:hi("MatchParen",   "",   s:t3, "")
 call s:hi("ModeMsg",      s:tB, "",   "")
 call s:hi("MoreMsg",      s:tB, "",   "")
 call s:hi("Question",     s:tD, "",   "")
-call s:hi("Search",       s:t3, s:tA, "")
-call s:hi("Substitute",   s:t3, s:tA, "none")
+call s:hi("Search",       s:t1, s:tA, "")
+call s:hi("Substitute",   s:t1, s:tA, "none")
 call s:hi("SpecialKey",   s:t3, "",   "")
 call s:hi("TooLong",      s:t8, "",   "")
 call s:hi("Underlined",   s:t8, "",   "")
@@ -212,6 +212,7 @@ call s:hi("NERDTreeExecFile", s:t5, "", "")
 call s:hi("phpMemberSelector", s:t5, "", "")
 call s:hi("phpComparison",     s:t5, "", "")
 call s:hi("phpParent",         s:t5, "", "")
+call s:hi("phpMethodsVar",     s:tC, "", "")
 
 " Python highlighting
 call s:hi("pythonOperator",  s:tE, "", "")
@@ -240,10 +241,10 @@ call s:hi("SignifySignChange", s:tD, s:t1, "")
 call s:hi("SignifySignDelete", s:t8, s:t1, "")
 
 " Spelling highlighting
-call s:hi("SpellBad",   "", s:t0, "undercurl")
-call s:hi("SpellLocal", "", s:t0, "undercurl")
-call s:hi("SpellCap",   "", s:t0, "undercurl")
-call s:hi("SpellRare",  "", s:t0, "undercurl")
+call s:hi("SpellBad",   "", "", "undercurl")
+call s:hi("SpellLocal", "", "", "undercurl")
+call s:hi("SpellCap",   "", "", "undercurl")
+call s:hi("SpellRare",  "", "", "undercurl")
 
 " Startify highlighting
 call s:hi("StartifyBracket", s:t3, "", "")
@@ -256,6 +257,9 @@ call s:hi("StartifySection", s:tE, "", "")
 call s:hi("StartifySelect",  s:tC, "", "")
 call s:hi("StartifySlash",   s:t3, "", "")
 call s:hi("StartifySpecial", s:t3, "", "")
+
+" Java highlighting
+call s:hi("javaOperator", s:tD, "", "")
 
 " Cleanup
 delfunction s:hi

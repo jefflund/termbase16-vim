@@ -15,14 +15,14 @@ if !has('gui_running')
 endif
 
 " GUI color definitions
-let s:gui00        = "3f3f3f"
-let g:base16_gui00 = "3f3f3f"
+let s:gui00        = "383838"
+let g:base16_gui00 = "383838"
 let s:gui01        = "404040"
 let g:base16_gui01 = "404040"
 let s:gui02        = "606060"
 let g:base16_gui02 = "606060"
-let s:gui03        = "4f4f4f"
-let g:base16_gui03 = "4f4f4f"
+let s:gui03        = "6f6f6f"
+let g:base16_gui03 = "6f6f6f"
 let s:gui04        = "808080"
 let g:base16_gui04 = "808080"
 let s:gui05        = "dcdccc"
@@ -99,7 +99,7 @@ endif
 
 " Neovim terminal colours
 if has("nvim")
-  let g:terminal_color_0 =  "#3f3f3f"
+  let g:terminal_color_0 =  "#383838"
   let g:terminal_color_1 =  "#dca3a3"
   let g:terminal_color_2 =  "#5f7f5f"
   let g:terminal_color_3 =  "#e0cf9f"
@@ -107,7 +107,7 @@ if has("nvim")
   let g:terminal_color_5 =  "#dc8cc3"
   let g:terminal_color_6 =  "#93e0e3"
   let g:terminal_color_7 =  "#dcdccc"
-  let g:terminal_color_8 =  "#4f4f4f"
+  let g:terminal_color_8 =  "#6f6f6f"
   let g:terminal_color_9 =  "#dca3a3"
   let g:terminal_color_10 = "#5f7f5f"
   let g:terminal_color_11 = "#e0cf9f"
@@ -121,6 +121,25 @@ if has("nvim")
     let g:terminal_color_background = g:terminal_color_7
     let g:terminal_color_foreground = g:terminal_color_2
   endif
+elseif has('terminal')
+  let g:terminal_ansi_colors = [
+        \ "#383838",
+        \ "#dca3a3",
+        \ "#5f7f5f",
+        \ "#e0cf9f",
+        \ "#7cb8bb",
+        \ "#dc8cc3",
+        \ "#93e0e3",
+        \ "#dcdccc",
+        \ "#6f6f6f",
+        \ "#dca3a3",
+        \ "#5f7f5f",
+        \ "#e0cf9f",
+        \ "#7cb8bb",
+        \ "#dc8cc3",
+        \ "#93e0e3",
+        \ "#ffffff",
+        \ ]
 endif
 
 " Theme setup
@@ -129,7 +148,11 @@ syntax reset
 let g:colors_name = "base16-zenburn"
 
 " Highlighting function
-function! g:Base16hi(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
+" Optional variables are attributes and guisp
+function! g:Base16hi(group, guifg, guibg, ctermfg, ctermbg, ...)
+	let a:attr = get(a:, 1, "")
+	let a:guisp = get(a:, 2, "")
+
   if a:guifg != ""
     exec "hi " . a:group . " guifg=#" . a:guifg
   endif
@@ -172,8 +195,8 @@ call <sid>hi("MatchParen",    "", s:gui03, "", s:cterm03,  "", "")
 call <sid>hi("ModeMsg",       s:gui0B, "", s:cterm0B, "", "", "")
 call <sid>hi("MoreMsg",       s:gui0B, "", s:cterm0B, "", "", "")
 call <sid>hi("Question",      s:gui0D, "", s:cterm0D, "", "", "")
-call <sid>hi("Search",        s:gui03, s:gui0A, s:cterm03, s:cterm0A,  "", "")
-call <sid>hi("Substitute",    s:gui03, s:gui0A, s:cterm03, s:cterm0A, "none", "")
+call <sid>hi("Search",        s:gui01, s:gui0A, s:cterm01, s:cterm0A,  "", "")
+call <sid>hi("Substitute",    s:gui01, s:gui0A, s:cterm01, s:cterm0A, "none", "")
 call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "", "")
 call <sid>hi("TooLong",       s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("Underlined",    s:gui08, "", s:cterm08, "", "", "")
@@ -333,6 +356,7 @@ call <sid>hi("NERDTreeExecFile",  s:gui05, "", s:cterm05, "", "", "")
 call <sid>hi("phpMemberSelector",  s:gui05, "", s:cterm05, "", "", "")
 call <sid>hi("phpComparison",      s:gui05, "", s:cterm05, "", "", "")
 call <sid>hi("phpParent",          s:gui05, "", s:cterm05, "", "", "")
+call <sid>hi("phpMethodsVar",      s:gui0C, "", s:cterm0C, "", "", "")
 
 " Python highlighting
 call <sid>hi("pythonOperator",  s:gui0E, "", s:cterm0E, "", "", "")
@@ -361,10 +385,10 @@ call <sid>hi("SignifySignChange",  s:gui0D, s:gui01, s:cterm0D, s:cterm01, "", "
 call <sid>hi("SignifySignDelete",  s:gui08, s:gui01, s:cterm08, s:cterm01, "", "")
 
 " Spelling highlighting
-call <sid>hi("SpellBad",     "", s:gui00, "", s:cterm00, "undercurl", s:gui08)
-call <sid>hi("SpellLocal",   "", s:gui00, "", s:cterm00, "undercurl", s:gui0C)
-call <sid>hi("SpellCap",     "", s:gui00, "", s:cterm00, "undercurl", s:gui0D)
-call <sid>hi("SpellRare",    "", s:gui00, "", s:cterm00, "undercurl", s:gui0E)
+call <sid>hi("SpellBad",     "", "", "", "", "undercurl", s:gui08)
+call <sid>hi("SpellLocal",   "", "", "", "", "undercurl", s:gui0C)
+call <sid>hi("SpellCap",     "", "", "", "", "undercurl", s:gui0D)
+call <sid>hi("SpellRare",    "", "", "", "", "undercurl", s:gui0E)
 
 " Startify highlighting
 call <sid>hi("StartifyBracket",  s:gui03, "", s:cterm03, "", "", "")
@@ -377,6 +401,9 @@ call <sid>hi("StartifySection",  s:gui0E, "", s:cterm0E, "", "", "")
 call <sid>hi("StartifySelect",   s:gui0C, "", s:cterm0C, "", "", "")
 call <sid>hi("StartifySlash",    s:gui03, "", s:cterm03, "", "", "")
 call <sid>hi("StartifySpecial",  s:gui03, "", s:cterm03, "", "", "")
+
+" Java highlighting
+call <sid>hi("javaOperator",     s:gui0D, "", s:cterm0D, "", "", "")
 
 " Remove functions
 delf <sid>hi

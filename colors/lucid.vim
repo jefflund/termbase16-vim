@@ -5,22 +5,22 @@ syntax reset
 let g:colors_name="lucid"
 
 " Color definitions
-let s:t0="233" " Default Background
-let s:t1="237" " Lighter Background (Status bars)
-let s:t2="241" " Selection Background
-let s:t3="246" " Comments, Invisibles
-let s:t4="250" " Dark Foreground (Status bars)
-let s:t5="255" " Default Foreground
+let s:t0="234" " Default Background
+let s:t1="238" " Lighter Background (Status bars)
+let s:t2="237" " Selection Background
+let s:t3="245" " Comments, Invisibles
+let s:t4="254" " Dark Foreground (Status bars)
+let s:t5="253" " Default Foreground
 let s:t6="254" " Light Foreground (Rarely used)
-let s:t7="242" " Light Background (Rarely used)
-let s:t8="131" " Debug, Identifiers, Diff Delete
-let s:t9="173" " Numbers, Booleans, Constants
-let s:tA="222" " Classes, Labels
-let s:tB="143" " Strings, Diff Add
-let s:tC="109" " Escapes, RegExp
-let s:tD="139" " Function, Include, Directory
-let s:tE="139" " Keywords, Storage, Diff Change
-let s:tF="131" " Delimiters, SpecialChar
+let s:t7="234" " Light Background (Rarely used)
+let s:t8="167" " Debug, Identifiers, Diff Delete
+let s:t9="116" " Numbers, Booleans, Constants
+let s:tA="110" " Classes, Labels
+let s:tB="150" " Strings, Diff Add
+let s:tC="181" " Escapes, RegExp
+let s:tD="216" " Function, Include, Directory
+let s:tE="110" " Keywords, Storage, Diff Change
+let s:tF="181" " Delimiters, SpecialChar
 
 " Highlight function
 function s:hi(group, fg, bg, attr)

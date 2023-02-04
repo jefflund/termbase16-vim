@@ -12,5 +12,5 @@ endfunction
 function! TermbasePrevColor()
     let colors = getcompletion('', 'color')
     let idx = index(colors, g:colors_name) - 1
-    exe 'coloscheme ' .. colors[idx < 0 ? -1 : idx]
+    exe 'colorscheme ' .. colors[idx < 0 ? -1 : idx]
 endfunction

@@ -3,6 +3,18 @@ if exists("g:loaded_termbase")
 endif
 let g:loaded_termbase = 1
 
+function! TermbaseCycleNext()
+    let l:colors = getcompletion('', 'color')
+    let l:idx = index(l:colors, g:colors_name) + 1
+    exe 'colorscheme ' .. l:colors[l:idx < len(l:colors) ? l:idx : 0]
+endfunction
+
+function! TermbaseCyclePrev()
+    let l:colors = getcompletion('', 'color')
+    let l:idx = index(l:colors, g:colors_name) - 1
+    exe 'colorscheme ' .. l:colors[l:idx < 0 ? -1 : l:idx]
+endfunction
+
 function! TermbaseHighlight(group, fg, bg, attr)
     if a:fg != ""
         exec "highlight " . a:group . " ctermfg=" . a:fg

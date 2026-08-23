@@ -285,6 +285,61 @@ function! CTerm16Apply(name = "")
     call CTerm16Highlight("javaOperator", g:ct16_D, "", "")
 endfunction
 
+function! CTerm16AirlineTheme()
+    " Section A/Z: mode indicator (bold accent on secondary bg)
+    " Section B/Y: secondary info (secondary fg on selection bg)
+    " Section C/X: filename/main area (primary fg on secondary bg)
+    let s:N1 = ['', '', g:ct16_1, g:ct16_B, '']
+    let s:N2 = ['', '', g:ct16_4, g:ct16_2, '']
+    let s:N3 = ['', '', g:ct16_5, g:ct16_1, '']
+
+    let s:I1 = ['', '', g:ct16_1, g:ct16_D, '']
+    let s:I2 = ['', '', g:ct16_4, g:ct16_2, '']
+    let s:I3 = ['', '', g:ct16_5, g:ct16_1, '']
+
+    let s:R1 = ['', '', g:ct16_1, g:ct16_8, '']
+    let s:R2 = ['', '', g:ct16_4, g:ct16_2, '']
+    let s:R3 = ['', '', g:ct16_5, g:ct16_1, '']
+
+    let s:V1 = ['', '', g:ct16_1, g:ct16_E, '']
+    let s:V2 = ['', '', g:ct16_4, g:ct16_2, '']
+    let s:V3 = ['', '', g:ct16_5, g:ct16_1, '']
+
+    let s:IA = ['', '', g:ct16_3, g:ct16_1, '']
+
+    let g:airline#themes#cterm16#palette = {}
+    let g:airline#themes#cterm16#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
+    let g:airline#themes#cterm16#palette.insert = airline#themes#generate_color_map(s:I1, s:I2, s:I3)
+    let g:airline#themes#cterm16#palette.replace = airline#themes#generate_color_map(s:R1, s:R2, s:R3)
+    let g:airline#themes#cterm16#palette.visual = airline#themes#generate_color_map(s:V1, s:V2, s:V3)
+    let g:airline#themes#cterm16#palette.inactive = airline#themes#generate_color_map(s:IA, s:IA, s:IA)
+
+    let g:airline#themes#cterm16#palette.normal_modified = {
+          \ 'airline_c': ['', '', g:ct16_9, g:ct16_1, ''],
+          \ }
+    let g:airline#themes#cterm16#palette.insert_modified = {
+          \ 'airline_c': ['', '', g:ct16_9, g:ct16_1, ''],
+          \ }
+    let g:airline#themes#cterm16#palette.replace_modified = {
+          \ 'airline_c': ['', '', g:ct16_9, g:ct16_1, ''],
+          \ }
+    let g:airline#themes#cterm16#palette.visual_modified = {
+          \ 'airline_c': ['', '', g:ct16_9, g:ct16_1, ''],
+          \ }
+
+    let s:WI = ['', '', g:ct16_0, g:ct16_A, '']
+    let g:airline#themes#cterm16#palette.normal.airline_warning = s:WI
+    let g:airline#themes#cterm16#palette.insert.airline_warning = s:WI
+    let g:airline#themes#cterm16#palette.replace.airline_warning = s:WI
+    let g:airline#themes#cterm16#palette.visual.airline_warning = s:WI
+
+    let s:ER = ['', '', g:ct16_0, g:ct16_8, '']
+    let g:airline#themes#cterm16#palette.normal.airline_error = s:ER
+    let g:airline#themes#cterm16#palette.insert.airline_error = s:ER
+    let g:airline#themes#cterm16#palette.replace.airline_error = s:ER
+    let g:airline#themes#cterm16#palette.visual.airline_error = s:ER
+endfunction
+
 function! CTerm16ClearANSIColors()
     if exists('w:cterm16_matches')
         for l:id in w:cterm16_matches
